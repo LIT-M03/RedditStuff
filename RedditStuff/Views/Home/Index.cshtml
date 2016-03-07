@@ -1,0 +1,24 @@
+﻿@model RedditStuff.Models.RedditViewModel
+           
+<table class="table table-hover table-striped table-bordered">
+    <tr>
+        <th>Link</th>
+        <th>Author</th>
+        <th>Score</th>
+    </tr>
+    @foreach (var post in Model.Posts)
+    {
+        <tr data-comment="@post.TopComment">
+            <td>
+                <a href="@post.Url">@post.Title</a>
+            </td>
+            <td>@post.AuthorName</td>
+            <td>@post.Score</td>
+        </tr>
+    }
+</table>
+<div id='comment' class="well"></div>
+@section scripts
+{
+    <script src="/Scripts/index.js"></script>
+}
